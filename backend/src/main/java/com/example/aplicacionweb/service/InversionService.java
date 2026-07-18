@@ -1,9 +1,9 @@
-package com.negocio.backend.service;
+package com.example.aplicacionweb.service;
 
-import com.negocio.backend.model.Historial_inversion;
-import com.negocio.backend.model.Inversion;
-import com.negocio.backend.repository.HistorialInversionRepository;
-import com.negocio.backend.repository.InversionRepository;
+import com.example.aplicacionweb.model.Historial_inversion;
+import com.example.aplicacionweb.model.Inversion;
+import com.example.aplicacionweb.repository.HistorialInversionRepository;
+import com.example.aplicacionweb.repository.InversionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,10 +1,10 @@
-package com.negocio.backend.service;
+package com.example.aplicacionweb.service;
 
-import com.negocio.backend.model.Compra_robux;
-import com.negocio.backend.model.Compra_streaming;
-import com.negocio.backend.repository.ClientesRepository;
-import com.negocio.backend.repository.CompraRobuxRepository;
-import com.negocio.backend.repository.CompraStreamingRepository;
+import com.example.aplicacionweb.model.Compra_robux;
+import com.example.aplicacionweb.model.Compra_streaming;
+import com.example.aplicacionweb.repository.ClientesRepository;
+import com.example.aplicacionweb.repository.CompraRobuxRepository;
+import com.example.aplicacionweb.repository.CompraStreamingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

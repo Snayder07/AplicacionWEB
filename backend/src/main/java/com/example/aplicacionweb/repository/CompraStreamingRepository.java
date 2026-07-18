@@ -1,6 +1,6 @@
-package com.negocio.backend.repository;
+package com.example.aplicacionweb.repository;
 
-import com.negocio.backend.model.Compra_streaming;
+import com.example.aplicacionweb.model.Compra_streaming;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

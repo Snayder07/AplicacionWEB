@@ -1,7 +1,7 @@
-package com.negocio.backend.repository;
+package com.example.aplicacionweb.repository;
 
-import com.negocio.backend.model.Compra_robux;
-import com.negocio.backend.model.Estado;
+import com.example.aplicacionweb.model.Compra_robux;
+import com.example.aplicacionweb.model.Estado;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

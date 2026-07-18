@@ -1,5 +1,5 @@
-package com.negocio.backend.repository;
-import com.negocio.backend.model.Admin;
+package com.example.aplicacionweb.repository;
+import com.example.aplicacionweb.model.Admin;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;

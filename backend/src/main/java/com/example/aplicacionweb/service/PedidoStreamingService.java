@@ -1,7 +1,7 @@
-package com.negocio.backend.service;
+package com.example.aplicacionweb.service;
 
-import com.negocio.backend.model.Compra_streaming;
-import com.negocio.backend.repository.CompraStreamingRepository;
+import com.example.aplicacionweb.model.Compra_streaming;
+import com.example.aplicacionweb.repository.CompraStreamingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,7 @@
-package com.negocio.backend.service;
+package com.example.aplicacionweb.service;
 
-import com.negocio.backend.model.Compra_robux;
-import com.negocio.backend.repository.CompraRobuxRepository;
+import com.example.aplicacionweb.model.Compra_robux;
+import com.example.aplicacionweb.repository.CompraRobuxRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

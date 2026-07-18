@@ -1,7 +1,6 @@
-package com.negocio.backend.service;
-
-import com.negocio.backend.model.Clientes;
-import com.negocio.backend.repository.ClientesRepository;
+package com.example.aplicacionweb.service;
+import com.example.aplicacionweb.model.Clientes;
+import com.example.aplicacionweb.repository.ClientesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;

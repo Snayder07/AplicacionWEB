@@ -1,6 +1,6 @@
-package com.negocio.backend.repository;
+package com.example.aplicacionweb.repository;
 
-import com.negocio.backend.model.Moneda;
+import com.example.aplicacionweb.model.Moneda;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;

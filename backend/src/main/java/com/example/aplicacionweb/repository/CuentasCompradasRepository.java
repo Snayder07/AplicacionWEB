@@ -1,6 +1,6 @@
-package com.negocio.backend.repository;
+package com.example.aplicacionweb.repository;
 
-import com.negocio.backend.model.Cuentas_compradas;
+import com.example.aplicacionweb.model.Cuentas_compradas;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.List;

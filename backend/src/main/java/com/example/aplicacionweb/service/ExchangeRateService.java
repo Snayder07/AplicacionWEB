@@ -1,4 +1,4 @@
-package com.negocio.backend.service;
+package com.example.aplicacionweb.service;
 
 import org.springframework.stereotype.Service;
 

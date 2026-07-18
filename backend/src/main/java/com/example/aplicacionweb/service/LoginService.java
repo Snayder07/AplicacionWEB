@@ -1,7 +1,7 @@
-package com.negocio.backend.service;
+package com.example.aplicacionweb.service;
 
-import com.negocio.backend.model.Admin;
-import com.negocio.backend.repository.AdminRepository;
+import com.example.aplicacionweb.model.Admin;
+import com.example.aplicacionweb.repository.AdminRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

@@ -1,4 +1,4 @@
-package com.negocio.backend.model;
+package com.example.aplicacionweb.model;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

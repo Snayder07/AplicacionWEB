@@ -1,6 +1,6 @@
-package com.negocio.backend.repository;
+package com.example.aplicacionweb.repository;
 
-import com.negocio.backend.model.Inversion;
+import com.example.aplicacionweb.model.Inversion;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
