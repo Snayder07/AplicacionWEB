@@ -187,7 +187,7 @@ public class DashboardService {
         return new ConversionUsd(total, incompleta);
     }
 
-    private void sumarEnMapa(Map<String, BigDecimal> mapa, com.negocio.backend.model.Moneda moneda, BigDecimal monto) {
+    private void sumarEnMapa(Map<String, BigDecimal> mapa, com.example.aplicacionweb.model.Moneda moneda, BigDecimal monto) {
         if (moneda == null || moneda.getCodigo() == null || monto == null) {
             return;
         }
@@ -198,7 +198,7 @@ public class DashboardService {
     }
 
     private void acumularMoneda(Map<String, DashboardStats.MonedaResumen> mapa,
-                                com.negocio.backend.model.Moneda moneda,
+                                com.example.aplicacionweb.model.Moneda moneda,
                                 BigDecimal monto) {
         if (moneda == null || moneda.getCodigo() == null || monto == null) {
             return;
