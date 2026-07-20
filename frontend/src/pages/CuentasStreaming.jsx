@@ -1,28 +1,40 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { get, post } from '../api';
 import './Pages.css';
 
 const estadoInicialForm = { plataforma: '', correo: '', contrasena: '', precioCompra: '' };
 
-const cuentasIniciales = [
-  { id: 1, plataforma: 'Netflix', correo: 'cuenta1@correo.com', precioCompra: 5.0 },
-  { id: 2, plataforma: 'Disney+', correo: 'cuenta2@correo.com', precioCompra: 4.0 },
-];
-
 export default function CuentasStreaming() {
-  const [cuentas, setCuentas] = useState(cuentasIniciales);
+  const [cuentas, setCuentas] = useState([]);
   const [form, setForm] = useState(estadoInicialForm);
+
+  const cargarCuentas = () => {
+    get('/cuentas-streaming').then(setCuentas).catch(() => {});
+  };
+
+  useEffect(() => { cargarCuentas(); }, []);
 
   function handleChange(e) {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     if (!form.plataforma.trim() || !form.correo.trim()) return;
-
-    setCuentas([...cuentas, { ...form, id: cuentas.length + 1 }]);
-    setForm(estadoInicialForm);
+    try {
+      await post('/cuentas-streaming', {
+        plataforma: form.plataforma.trim(),
+        correo: form.correo.trim(),
+        contrasena: form.contrasena,
+        precioCompra: Number(form.precioCompra),
+        codigoMoneda: 'USD',
+      });
+      setForm(estadoInicialForm);
+      cargarCuentas();
+    } catch (err) {
+      alert('Error al guardar cuenta: ' + err.message);
+    }
   }
 
   return (
@@ -41,26 +53,22 @@ export default function CuentasStreaming() {
               <input id="plataforma" name="plataforma" type="text" placeholder="ej. Netflix"
                 value={form.plataforma} onChange={handleChange} />
             </div>
-
             <div className="form-field">
               <label htmlFor="correo">Correo</label>
               <input id="correo" name="correo" type="email" placeholder="cuenta@correo.com"
                 value={form.correo} onChange={handleChange} />
             </div>
-
             <div className="form-field">
               <label htmlFor="contrasena">Contraseña</label>
               <input id="contrasena" name="contrasena" type="password"
                 value={form.contrasena} onChange={handleChange} />
             </div>
-
             <div className="form-field">
               <label htmlFor="precioCompra">Precio de compra ($)</label>
               <input id="precioCompra" name="precioCompra" type="number" step="0.01" placeholder="5.00"
                 value={form.precioCompra} onChange={handleChange} />
             </div>
           </div>
-
           <button type="submit" className="btn btn-primary">Guardar cuenta</button>
         </form>
       </div>
@@ -77,7 +85,7 @@ export default function CuentasStreaming() {
           </thead>
           <tbody>
             {cuentas.map((c) => (
-              <tr key={c.id}>
+              <tr key={c.idCuentas}>
                 <td>{c.plataforma}</td>
                 <td>{c.correo}</td>
                 <td>${Number(c.precioCompra).toFixed(2)}</td>

@@ -1,26 +1,19 @@
+import { useState, useEffect } from 'react';
+import { get } from '../api';
 import './Pages.css';
 
-/*
-  VER INVERSIONES
-  ---------------
-  Esta página no tiene formulario, solo muestra datos (por ahora mock).
-  Es el ejemplo más simple: una tabla que recorre un arreglo con .map().
-  Cuando conectes el backend, esto se vuelve una página con useState +
-  useEffect que carga los datos con fetch al montar el componente, en vez
-  de tener el arreglo escrito a mano.
-*/
-
-const inversiones = [
-  { id: 1, cliente: 'kaka_gt', monto: 100.0, porcentaje: 10, inicio: '2025-05-01', estado: 'Activa' },
-  { id: 2, cliente: 'snayder07', monto: 250.0, porcentaje: 8, inicio: '2025-04-15', estado: 'Activa' },
-  { id: 3, cliente: 'leo_gg', monto: 50.0, porcentaje: 12, inicio: '2025-03-20', estado: 'Finalizada' },
-];
-
 function estadoBadgeClass(estado) {
-  return estado === 'Activa' ? 'badge badge-success' : 'badge badge-warning';
+  const e = (estado || '').toLowerCase();
+  return e === 'activa' ? 'badge badge-success' : 'badge badge-warning';
 }
 
 export default function VerInversiones() {
+  const [inversiones, setInversiones] = useState([]);
+
+  useEffect(() => {
+    get('/inversiones').then(setInversiones).catch(() => {});
+  }, []);
+
   return (
     <div className="page">
       <div className="page-header">
@@ -41,13 +34,13 @@ export default function VerInversiones() {
           </thead>
           <tbody>
             {inversiones.map((inv) => (
-              <tr key={inv.id}>
-                <td>{inv.cliente}</td>
-                <td>${inv.monto.toFixed(2)}</td>
-                <td>{inv.porcentaje}%</td>
-                <td>{inv.inicio}</td>
+              <tr key={inv.idInversion}>
+                <td>{inv.cliente?.nombreDiscord || 'N/D'}</td>
+                <td>${inv.montoInvertido?.toFixed(2)}</td>
+                <td>{inv.porcentajeMensual}%</td>
+                <td>{inv.fechaInversionInicial}</td>
                 <td>
-                  <span className={estadoBadgeClass(inv.estado)}>{inv.estado}</span>
+                  <span className={estadoBadgeClass(inv.estadoInversion)}>{inv.estadoInversion}</span>
                 </td>
               </tr>
             ))}

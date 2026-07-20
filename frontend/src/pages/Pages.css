@@ -126,6 +126,7 @@
 .badge-success { background-color: rgba(63, 185, 80, 0.15); color: #3fb950; }
 .badge-warning { background-color: rgba(210, 153, 34, 0.15); color: #d29922; }
 .badge-danger  { background-color: rgba(248, 81, 73, 0.15);  color: #f85149; }
+.badge-info    { background-color: rgba(31, 111, 235, 0.15); color: #58a6ff; }
 
 /* ---------- Formularios ---------- */
 
