@@ -16,13 +16,14 @@ public class ClientesService {
         return clienteRepository.findAll();
     }
 
+
     public Clientes guardarCliente(Clientes cliente) {
         return clienteRepository.save(cliente);
     }
 
     // Asegúrate de que apunte al nuevo método del repositorio
     public List<Clientes> buscarPorDiscordId(String idDiscord) {
-        return clienteRepository.findByIdDiscordContainingIgnoreCase(idDiscord);
+        return clienteRepository.findByIdDiscordContaining(idDiscord);
     }
     // En ClientesService.java:
     public List<ClientesRepository.ClienteConPedidosDto> listarClientesConPedidos() {

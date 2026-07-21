@@ -1,8 +1,8 @@
 package com.example.aplicacionweb.repository;
-
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import com.example.aplicacionweb.model.Clientes;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
@@ -10,7 +10,8 @@ import java.util.Optional;
 @Repository
 public interface ClientesRepository extends JpaRepository<Clientes, Long> {
 
-    List<Clientes> findByIdDiscordContainingIgnoreCase(String idDiscord);
+    @Query("SELECT c FROM Clientes c WHERE CAST(c.idDiscord AS string) LIKE CONCAT('%', :idDiscord, '%')")
+    List<Clientes> findByIdDiscordContaining(@Param("idDiscord") String idDiscord);
 
     Optional<Clientes> findByNombreDiscord(String nombreDiscord);
 

@@ -1,74 +1,58 @@
-import { useState, useEffect } from 'react';
-import { get } from '../api';
+import { useDashboardController } from '../controllers/useDashboardController';
 import './Pages.css';
 
-function estadoBadgeClass(estado) {
-  const e = (estado || '').toLowerCase();
-  if (e.includes('complet')) return 'badge badge-success';
-  if (e.includes('pend') || e.includes('tratam') || e.includes('anotad')) return 'badge badge-warning';
-  return 'badge badge-danger';
-}
-
 export default function Dashboard() {
-  const [stats, setStats] = useState(null);
-  const [error, setError] = useState('');
+  const c = useDashboardController();
 
-  useEffect(() => {
-    get('/dashboard')
-      .then(setStats)
-      .catch(() => setError('No se pudo conectar con el servidor'));
-  }, []);
-
-  if (error) {
+  if (c.error) {
     return (
-      <div className="page">
+      <div className="page" data-testid="dashboard-page">
         <div className="page-header">
-          <h1 className="page-title">Dashboard</h1>
+          <h1 className="page-title" data-testid="dashboard-title">Dashboard</h1>
           <p className="page-subtitle">Resumen general del negocio</p>
         </div>
-        <div className="panel">
-          <p style={{ color: '#f85149' }}>{error}</p>
-          <p style={{ color: '#8b949e', fontSize: '14px' }}>Asegúrate de que el backend esté corriendo en http://localhost:8080</p>
+        <div className="alert alert-error" data-testid="dashboard-error">
+          {c.error} &mdash; Asegúrate de que el backend esté corriendo en http://localhost:8080
         </div>
       </div>
     );
   }
 
-  if (!stats) {
+  if (!c.stats) {
     return (
-      <div className="page">
+      <div className="page" data-testid="dashboard-page">
         <p style={{ color: '#8b949e' }}>Cargando...</p>
       </div>
     );
   }
 
   const resumen = [
-    { label: 'Clientes totales', value: stats.totalClientes },
-    { label: 'Ventas Robux (mes)', value: `$${stats.ventasTotalesUsd}` },
-    { label: 'Pedidos pendientes', value: stats.pedidosPendientes },
-    { label: 'Pedidos completados', value: stats.pedidosCompletados },
+    { label: 'Clientes totales', value: c.stats.totalClientes, testId: 'card-clientes' },
+    { label: 'Ventas totales (USD)', value: `$${c.stats.ventasTotalesUsd}`, testId: 'card-ventas' },
+    { label: 'Pedidos pendientes', value: c.stats.pedidosPendientes, testId: 'card-pendientes' },
+    { label: 'Pedidos completados', value: c.stats.pedidosCompletados, testId: 'card-completados' },
   ];
 
   return (
-    <div className="page">
+    <div className="page" data-testid="dashboard-page">
       <div className="page-header">
-        <h1 className="page-title">Dashboard</h1>
+        <h1 className="page-title" data-testid="dashboard-title">Dashboard</h1>
         <p className="page-subtitle">Resumen general del negocio</p>
       </div>
 
-      <div className="cards-grid">
+      <div className="cards-grid" data-testid="dashboard-cards">
         {resumen.map((item) => (
-          <div className="card" key={item.label}>
+          <div className="card" key={item.label} data-testid={item.testId}>
             <p className="card-label">{item.label}</p>
             <p className="card-value">{item.value}</p>
           </div>
         ))}
       </div>
 
-      {stats.pedidosRecientes && stats.pedidosRecientes.length > 0 && (
-        <div className="panel">
+      {c.stats.pedidosRecientes?.length > 0 && (
+        <div className="panel" data-testid="dashboard-recientes">
           <h2 className="panel-title">Actividad reciente</h2>
-          <table className="data-table">
+          <table className="data-table" data-testid="tabla-recientes">
             <thead>
               <tr>
                 <th>Cliente</th>
@@ -78,13 +62,13 @@ export default function Dashboard() {
               </tr>
             </thead>
             <tbody>
-              {stats.pedidosRecientes.map((fila, index) => (
+              {c.stats.pedidosRecientes.map((fila, index) => (
                 <tr key={index}>
                   <td>{fila.cliente}</td>
                   <td>{fila.tipo}</td>
                   <td>${fila.monto}</td>
                   <td>
-                    <span className={estadoBadgeClass(fila.estado)}>
+                    <span className={c.estadoBadgeClass(fila.estado)}>
                       {fila.estado}
                     </span>
                   </td>

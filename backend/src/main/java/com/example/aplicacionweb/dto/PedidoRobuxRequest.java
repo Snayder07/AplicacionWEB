@@ -9,6 +9,7 @@ public class PedidoRobuxRequest {
     private BigDecimal precio;
     private String metodoEntrega;
     private String codigoMoneda;
+    private String codigoEstado;
 
     public String getNombreCliente() { return nombreCliente; }
     public void setNombreCliente(String nombreCliente) { this.nombreCliente = nombreCliente; }
@@ -22,4 +23,6 @@ public class PedidoRobuxRequest {
     public void setMetodoEntrega(String metodoEntrega) { this.metodoEntrega = metodoEntrega; }
     public String getCodigoMoneda() { return codigoMoneda; }
     public void setCodigoMoneda(String codigoMoneda) { this.codigoMoneda = codigoMoneda; }
+    public String getCodigoEstado() { return codigoEstado; }
+    public void setCodigoEstado(String codigoEstado) { this.codigoEstado = codigoEstado; }
 }

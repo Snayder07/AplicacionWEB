@@ -52,8 +52,11 @@ public class PedidoStreamingController {
         Moneda moneda = monedaRepository.findByCodigo(request.getCodigoMoneda() != null ? request.getCodigoMoneda() : "USD")
                 .orElseThrow(() -> new RuntimeException("Moneda no encontrada"));
 
-        Estado estado = estadoRepository.findByCodigo("pend")
-                .orElseThrow(() -> new RuntimeException("Estado 'pend' no encontrado"));
+        String codigoBuscado = (request.getCodigoEstado() != null && !request.getCodigoEstado().isBlank())
+                ? request.getCodigoEstado()
+                : "pend";
+        Estado estado = estadoRepository.findByCodigo(codigoBuscado)
+                .orElseThrow(() -> new RuntimeException("Estado no encontrado: " + codigoBuscado));
 
         Cuentas_compradas cuenta = cuentasRepository.findByCorreo(request.getCorreo())
                 .orElseGet(() -> {

@@ -55,8 +55,11 @@ public class PedidoRobuxController {
         Moneda moneda = monedaRepository.findByCodigo(request.getCodigoMoneda() != null ? request.getCodigoMoneda() : "USD")
                 .orElseThrow(() -> new RuntimeException("Moneda no encontrada"));
 
-        Estado estado = estadoRepository.findByCodigo("pend")
-                .orElseThrow(() -> new RuntimeException("Estado 'pend' no encontrado"));
+        String codigoBuscado = (request.getCodigoEstado() != null && !request.getCodigoEstado().isBlank())
+                ? request.getCodigoEstado()
+                : "pend";
+        Estado estado = estadoRepository.findByCodigo(codigoBuscado)
+                .orElseThrow(() -> new RuntimeException("Estado no encontrado: " + codigoBuscado));
 
         Compra_robux compra = new Compra_robux();
         compra.setCliente(cliente);

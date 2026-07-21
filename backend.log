@@ -1,0 +1,2123 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------< com.example:aplicacionweb >----------------------
+[INFO] Building  0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:4.1.0:run (default-cli) > test-compile @ aplicacionweb >>>
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ aplicacionweb ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 5 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ aplicacionweb ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ aplicacionweb ---
+[INFO] skip non existing resourceDirectory C:\Users\VICTUS\AplicacionWEB\backend\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ aplicacionweb ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] <<< spring-boot:4.1.0:run (default-cli) < test-compile @ aplicacionweb <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:4.1.0:run (default-cli) @ aplicacionweb ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.0)
+
+2026-07-20T19:42:25.587-05:00  INFO 27320 --- [aplicacionweb] [  restartedMain] c.e.a.AplicacionwebApplication           : Starting AplicacionwebApplication using Java 25.0.3 with PID 27320 (C:\Users\VICTUS\AplicacionWEB\backend\target\classes started by VICTUS in C:\Users\VICTUS\AplicacionWEB\backend)
+2026-07-20T19:42:25.590-05:00  INFO 27320 --- [aplicacionweb] [  restartedMain] c.e.a.AplicacionwebApplication           : No active profile set, falling back to 1 default profile: "default"
+2026-07-20T19:42:25.651-05:00  INFO 27320 --- [aplicacionweb] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-07-20T19:42:25.653-05:00  INFO 27320 --- [aplicacionweb] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-07-20T19:42:26.449-05:00  INFO 27320 --- [aplicacionweb] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-20T19:42:26.537-05:00  INFO 27320 --- [aplicacionweb] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 77 ms. Found 9 JPA repository interfaces.
+2026-07-20T19:42:27.107-05:00  INFO 27320 --- [aplicacionweb] [  restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-07-20T19:42:27.123-05:00  INFO 27320 --- [aplicacionweb] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-20T19:42:27.124-05:00  INFO 27320 --- [aplicacionweb] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-20T19:42:27.174-05:00  INFO 27320 --- [aplicacionweb] [  restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1519 ms
+2026-07-20T19:42:27.376-05:00  INFO 27320 --- [aplicacionweb] [  restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-20T19:42:27.446-05:00  INFO 27320 --- [aplicacionweb] [  restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-20T19:42:27.995-05:00  INFO 27320 --- [aplicacionweb] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-20T19:42:28.031-05:00  INFO 27320 --- [aplicacionweb] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-20T19:42:29.523-05:00  INFO 27320 --- [aplicacionweb] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@772da448
+2026-07-20T19:42:29.525-05:00  INFO 27320 --- [aplicacionweb] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-20T19:42:29.675-05:00  WARN 27320 --- [aplicacionweb] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-20T19:42:30.087-05:00  INFO 27320 --- [aplicacionweb] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://aws-0-ca-central-1.pooler.supabase.com:6543/postgres?prepareThreshold=0]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.6
+	Default catalog/schema: postgres/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-20T19:42:31.403-05:00  INFO 27320 --- [aplicacionweb] [  restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-20T19:42:32.401-05:00  INFO 27320 --- [aplicacionweb] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-20T19:42:32.492-05:00  INFO 27320 --- [aplicacionweb] [  restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-20T19:42:33.519-05:00  WARN 27320 --- [aplicacionweb] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-20T19:42:33.536-05:00  INFO 27320 --- [aplicacionweb] [  restartedMain] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page: class path resource [static/index.html]
+2026-07-20T19:42:33.930-05:00  INFO 27320 --- [aplicacionweb] [  restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-07-20T19:42:33.938-05:00  INFO 27320 --- [aplicacionweb] [  restartedMain] c.e.a.AplicacionwebApplication           : Started AplicacionwebApplication in 8.779 seconds (process running for 9.37)
+2026-07-20T19:52:22.594-05:00  INFO 27320 --- [aplicacionweb] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-07-20T19:52:22.606-05:00  INFO 27320 --- [aplicacionweb] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-07-20T19:52:22.683-05:00  INFO 27320 --- [aplicacionweb] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 74 ms
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        a1_0.id_admin,
+        a1_0.contrasena,
+        a1_0.usuario 
+    from
+        admin a1_0 
+    where
+        a1_0.usuario=?
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_cliente,
+        c1_0.fecha_creacion,
+        c1_0.id_discord,
+        c1_0.nombre_discord 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        c1_0.id_cliente,
+        c1_0.fecha_creacion,
+        c1_0.id_discord,
+        c1_0.nombre_discord 
+    from
+        clientes c1_0
+2026-07-20T19:55:37.748-05:00 ERROR 27320 --- [aplicacionweb] [nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.InvalidDataAccessApiUsageException: Unable to ignore case of java.lang.Long types, the property 'idDiscord' must reference a String] with root cause
+
+java.lang.IllegalArgumentException: Unable to ignore case of java.lang.Long types, the property 'idDiscord' must reference a String
+	at org.springframework.util.Assert.isTrue(Assert.java:136) ~[spring-core-7.0.8.jar:7.0.8]
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator$PredicateBuilder.potentiallyIgnoreCase(JpaQueryCreator.java:664) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator$PredicateBuilder.potentiallyIgnoreCase(JpaQueryCreator.java:648) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator$PredicateBuilder.build(JpaQueryCreator.java:456) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator.toPredicate(JpaQueryCreator.java:417) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator.create(JpaQueryCreator.java:188) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator.create(JpaQueryCreator.java:1) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.repository.query.parser.AbstractQueryCreator.createCriteria(AbstractQueryCreator.java:119) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.data.repository.query.parser.AbstractQueryCreator.createQuery(AbstractQueryCreator.java:96) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator.createQuery(JpaQueryCreator.java:1) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery$QueryPreparer$CacheableJpqlQueryCreator.<init>(PartTreeJpaQuery.java:335) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery$QueryPreparer.createCreator(PartTreeJpaQuery.java:315) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery$QueryPreparer.createQuery(PartTreeJpaQuery.java:230) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.doCreateQuery(PartTreeJpaQuery.java:125) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.createQuery(AbstractJpaQuery.java:266) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution$CollectionExecution.doExecute(JpaQueryExecution.java:141) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:100) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:166) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:156) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:169) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:167) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:146) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:69) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:135) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:137) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:222) ~[spring-aop-7.0.8.jar:7.0.8]
+	at jdk.proxy4/jdk.proxy4.$Proxy131.findByIdDiscordContainingIgnoreCase(Unknown Source) ~[na:na]
+	at com.example.aplicacionweb.service.ClientesService.buscarPorDiscordId(ClientesService.java:25) ~[classes/:na]
+	at com.example.aplicacionweb.controller.ClientesController.buscarPorDiscord(ClientesController.java:51) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:252) ~[spring-web-7.0.8.jar:7.0.8]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:184) ~[spring-web-7.0.8.jar:7.0.8]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-7.0.8.jar:7.0.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934) ~[spring-webmvc-7.0.8.jar:7.0.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853) ~[spring-webmvc-7.0.8.jar:7.0.8]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86) ~[spring-webmvc-7.0.8.jar:7.0.8]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963) ~[spring-webmvc-7.0.8.jar:7.0.8]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866) ~[spring-webmvc-7.0.8.jar:7.0.8]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1000) ~[spring-webmvc-7.0.8.jar:7.0.8]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:892) ~[spring-webmvc-7.0.8.jar:7.0.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:622) ~[tomcat-embed-core-11.0.22.jar:6.1]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874) ~[spring-webmvc-7.0.8.jar:7.0.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710) ~[tomcat-embed-core-11.0.22.jar:6.1]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-11.0.22.jar:11.0.22]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-7.0.8.jar:7.0.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.8.jar:7.0.8]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-7.0.8.jar:7.0.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.8.jar:7.0.8]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-7.0.8.jar:7.0.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.8.jar:7.0.8]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199) ~[spring-web-7.0.8.jar:7.0.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.8.jar:7.0.8]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1272) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1801) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-07-20T19:55:37.911-05:00 ERROR 27320 --- [aplicacionweb] [nio-8080-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.InvalidDataAccessApiUsageException: Unable to ignore case of java.lang.Long types, the property 'idDiscord' must reference a String] with root cause
+
+java.lang.IllegalArgumentException: Unable to ignore case of java.lang.Long types, the property 'idDiscord' must reference a String
+	at org.springframework.util.Assert.isTrue(Assert.java:136) ~[spring-core-7.0.8.jar:7.0.8]
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator$PredicateBuilder.potentiallyIgnoreCase(JpaQueryCreator.java:664) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator$PredicateBuilder.potentiallyIgnoreCase(JpaQueryCreator.java:648) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator$PredicateBuilder.build(JpaQueryCreator.java:456) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator.toPredicate(JpaQueryCreator.java:417) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator.create(JpaQueryCreator.java:188) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator.create(JpaQueryCreator.java:1) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.repository.query.parser.AbstractQueryCreator.createCriteria(AbstractQueryCreator.java:119) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.data.repository.query.parser.AbstractQueryCreator.createQuery(AbstractQueryCreator.java:96) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator.createQuery(JpaQueryCreator.java:1) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery$QueryPreparer$CacheableJpqlQueryCreator.<init>(PartTreeJpaQuery.java:335) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery$QueryPreparer.createCreator(PartTreeJpaQuery.java:315) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery$QueryPreparer.createQuery(PartTreeJpaQuery.java:230) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.doCreateQuery(PartTreeJpaQuery.java:125) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.createQuery(AbstractJpaQuery.java:266) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution$CollectionExecution.doExecute(JpaQueryExecution.java:141) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:100) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:166) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:156) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:169) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:167) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:146) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:69) ~[spring-data-commons-4.1.0.jar:4.1.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:135) ~[spring-tx-7.0.8.jar:7.0.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:137) ~[spring-data-jpa-4.1.0.jar:4.1.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.8.jar:7.0.8]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:222) ~[spring-aop-7.0.8.jar:7.0.8]
+	at jdk.proxy4/jdk.proxy4.$Proxy131.findByIdDiscordContainingIgnoreCase(Unknown Source) ~[na:na]
+	at com.example.aplicacionweb.service.ClientesService.buscarPorDiscordId(ClientesService.java:25) ~[classes/:na]
+	at com.example.aplicacionweb.controller.ClientesController.buscarPorDiscord(ClientesController.java:51) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:252) ~[spring-web-7.0.8.jar:7.0.8]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:184) ~[spring-web-7.0.8.jar:7.0.8]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-7.0.8.jar:7.0.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934) ~[spring-webmvc-7.0.8.jar:7.0.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853) ~[spring-webmvc-7.0.8.jar:7.0.8]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86) ~[spring-webmvc-7.0.8.jar:7.0.8]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963) ~[spring-webmvc-7.0.8.jar:7.0.8]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866) ~[spring-webmvc-7.0.8.jar:7.0.8]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1000) ~[spring-webmvc-7.0.8.jar:7.0.8]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:892) ~[spring-webmvc-7.0.8.jar:7.0.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:622) ~[tomcat-embed-core-11.0.22.jar:6.1]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874) ~[spring-webmvc-7.0.8.jar:7.0.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710) ~[tomcat-embed-core-11.0.22.jar:6.1]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-11.0.22.jar:11.0.22]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-7.0.8.jar:7.0.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.8.jar:7.0.8]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-7.0.8.jar:7.0.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.8.jar:7.0.8]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-7.0.8.jar:7.0.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.8.jar:7.0.8]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199) ~[spring-web-7.0.8.jar:7.0.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.8.jar:7.0.8]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1272) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1801) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        a1_0.id_admin,
+        a1_0.contrasena,
+        a1_0.usuario 
+    from
+        admin a1_0 
+    where
+        a1_0.usuario=?
+Hibernate: 
+    select
+        count(*) 
+    from
+        clientes c1_0
+Hibernate: 
+    select
+        c1_0.id_compra_robux,
+        c1_0.cantidad_robux,
+        c1_0.clave,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.metodo_entrega,
+        c1_0.id_moneda,
+        c1_0.precio,
+        c1_0.usuario_roblox 
+    from
+        compra_robux c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+Hibernate: 
+    select
+        c1_0.id_compra_streaming,
+        c1_0.id_cliente,
+        c2_0.id_cliente,
+        c2_0.fecha_creacion,
+        c2_0.id_discord,
+        c2_0.nombre_discord,
+        c1_0.id_cuentas_compradas,
+        c1_0.id_estado,
+        e1_0.id_estado,
+        e1_0.codigo,
+        e1_0.nombre_estado,
+        c1_0.fecha_compra,
+        c1_0.fecha_vencimiento,
+        c1_0.id_moneda,
+        c1_0.precio_venta 
+    from
+        compra_streaming c1_0 
+    join
+        clientes c2_0 
+            on c2_0.id_cliente=c1_0.id_cliente 
+    join
+        estado e1_0 
+            on e1_0.id_estado=c1_0.id_estado
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  21:41 min
+[INFO] Finished at: 2026-07-20T20:04:02-05:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:4.1.0:run (default-cli) on project aplicacionweb: Process terminated with exit code: -1 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

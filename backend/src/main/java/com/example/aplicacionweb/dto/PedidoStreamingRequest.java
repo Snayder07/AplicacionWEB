@@ -11,6 +11,7 @@ public class PedidoStreamingRequest {
     private LocalDate fechaVencimiento;
     private BigDecimal precioVenta;
     private String codigoMoneda;
+    private String codigoEstado;
 
     public String getNombreCliente() { return nombreCliente; }
     public void setNombreCliente(String nombreCliente) { this.nombreCliente = nombreCliente; }
@@ -26,4 +27,6 @@ public class PedidoStreamingRequest {
     public void setPrecioVenta(BigDecimal precioVenta) { this.precioVenta = precioVenta; }
     public String getCodigoMoneda() { return codigoMoneda; }
     public void setCodigoMoneda(String codigoMoneda) { this.codigoMoneda = codigoMoneda; }
+    public String getCodigoEstado() { return codigoEstado; }
+    public void setCodigoEstado(String codigoEstado) { this.codigoEstado = codigoEstado; }
 }

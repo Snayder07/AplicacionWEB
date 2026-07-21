@@ -1,83 +1,56 @@
-import { useState } from 'react';
-import { post } from '../api';
+import { useNuevaInversionController } from '../controllers/useNuevaInversionController';
+import SelectorCliente from '../components/SelectorCliente';
 import './Pages.css';
 
-const estadoInicialForm = {
-  nombreCliente: '',
-  montoInvertido: '',
-  porcentajeMensual: '',
-  fechaInversionInicial: '',
-};
-
 export default function NuevaInversion() {
-  const [form, setForm] = useState(estadoInicialForm);
-  const [mensaje, setMensaje] = useState('');
-  const [error, setError] = useState('');
-
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
-  }
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-    if (!form.nombreCliente.trim() || !form.montoInvertido) return;
-    setMensaje('');
-    setError('');
-    try {
-      await post('/inversiones', {
-        nombreCliente: form.nombreCliente.trim(),
-        montoInvertido: Number(form.montoInvertido),
-        porcentajeMensual: Number(form.porcentajeMensual),
-        fechaInversionInicial: form.fechaInversionInicial,
-      });
-      setMensaje(`Inversión registrada para "${form.nombreCliente}" por $${form.montoInvertido}.`);
-      setForm(estadoInicialForm);
-    } catch (err) {
-      setError('Error al registrar inversión: ' + err.message);
-    }
-  }
+  const c = useNuevaInversionController();
 
   return (
-    <div className="page">
+    <div className="page" data-testid="nueva-inversion-page">
       <div className="page-header">
-        <h1 className="page-title">Nueva inversión</h1>
+        <h1 className="page-title" data-testid="nueva-inversion-title">Nueva inversión</h1>
         <p className="page-subtitle">Registra una nueva inversión de un cliente</p>
       </div>
 
-      <div className="panel">
-        <form onSubmit={handleSubmit}>
+      <div className="panel" data-testid="panel-nueva-inversion">
+        {c.error && <div className="alert alert-error" data-testid="nueva-inversion-error">{c.error}</div>}
+        {c.mensaje && <div className="alert alert-success" data-testid="inversion-exito">{c.mensaje}</div>}
+
+        <form onSubmit={c.handleSubmit} data-testid="form-nueva-inversion">
           <div className="form-grid">
-            <div className="form-field">
-              <label htmlFor="nombreCliente">Cliente (nombre Discord)</label>
-              <input id="nombreCliente" name="nombreCliente" type="text" placeholder="ej. kaka_gt"
-                value={form.nombreCliente} onChange={handleChange} />
-            </div>
+            <SelectorCliente value={c.form.nombreCliente} onChange={c.handleChange} required />
+
             <div className="form-field">
               <label htmlFor="montoInvertido">Monto invertido ($)</label>
               <input id="montoInvertido" name="montoInvertido" type="number" step="0.01" placeholder="100.00"
-                value={form.montoInvertido} onChange={handleChange} />
+                value={c.form.montoInvertido} onChange={c.handleChange} data-testid="input-inversion-monto" />
             </div>
+
             <div className="form-field">
               <label htmlFor="porcentajeMensual">Porcentaje mensual (%)</label>
               <input id="porcentajeMensual" name="porcentajeMensual" type="number" step="0.01" placeholder="10"
-                value={form.porcentajeMensual} onChange={handleChange} />
+                value={c.form.porcentajeMensual} onChange={c.handleChange} data-testid="input-inversion-porcentaje" />
             </div>
+
             <div className="form-field">
               <label htmlFor="fechaInversionInicial">Fecha de inicio</label>
               <input id="fechaInversionInicial" name="fechaInversionInicial" type="date"
-                value={form.fechaInversionInicial} onChange={handleChange} />
+                value={c.form.fechaInversionInicial} onChange={c.handleChange} data-testid="input-inversion-fecha" />
+            </div>
+
+            <div className="form-field">
+              <label htmlFor="estadoInversion">Estado de la inversión</label>
+              <select id="estadoInversion" name="estadoInversion" value={c.form.estadoInversion} onChange={c.handleChange} data-testid="select-inversion-estado">
+                <option value="activa">Activa</option>
+                <option value="pausada">Pausada</option>
+              </select>
             </div>
           </div>
-          <button type="submit" className="btn btn-primary">Registrar inversión</button>
-        </form>
 
-        {mensaje && (
-          <p style={{ color: '#3fb950', marginTop: '16px', fontSize: '14px' }}>{mensaje}</p>
-        )}
-        {error && (
-          <p style={{ color: '#f85149', marginTop: '16px', fontSize: '14px' }}>{error}</p>
-        )}
+          <button type="submit" className="btn btn-primary" disabled={c.cargando} data-testid="btn-registrar-inversion">
+            {c.cargando ? 'Guardando...' : 'Registrar inversión'}
+          </button>
+        </form>
       </div>
     </div>
   );

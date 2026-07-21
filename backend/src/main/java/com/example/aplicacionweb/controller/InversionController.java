@@ -53,7 +53,11 @@ public class InversionController {
         inversion.setMontoInvertido(request.getMontoInvertido());
         inversion.setPorcentajeMensual(request.getPorcentajeMensual());
         inversion.setFechaInversionInicial(request.getFechaInversionInicial());
-        inversion.setEstadoInversion("activa");
+        inversion.setEstadoInversion(
+            request.getEstadoInversion() != null && !request.getEstadoInversion().isBlank()
+                ? request.getEstadoInversion()
+                : "activa"
+        );
 
         return inversionRepository.save(inversion);
     }

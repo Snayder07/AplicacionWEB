@@ -8,6 +8,7 @@ public class InversionRequest {
     private BigDecimal montoInvertido;
     private BigDecimal porcentajeMensual;
     private LocalDate fechaInversionInicial;
+    private String estadoInversion;
 
     public String getNombreCliente() { return nombreCliente; }
     public void setNombreCliente(String nombreCliente) { this.nombreCliente = nombreCliente; }
@@ -17,4 +18,6 @@ public class InversionRequest {
     public void setPorcentajeMensual(BigDecimal porcentajeMensual) { this.porcentajeMensual = porcentajeMensual; }
     public LocalDate getFechaInversionInicial() { return fechaInversionInicial; }
     public void setFechaInversionInicial(LocalDate fechaInversionInicial) { this.fechaInversionInicial = fechaInversionInicial; }
+    public String getEstadoInversion() { return estadoInversion; }
+    public void setEstadoInversion(String estadoInversion) { this.estadoInversion = estadoInversion; }
 }
