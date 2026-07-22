@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useAuth } from './context/useAuth';
 import Sidebar from './components/Sidebar';
+import './App.css';
 import ProtectedRoute from './components/ProtectedRoute';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
@@ -16,9 +17,9 @@ function AppLayout() {
   const auth = useAuth();
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: '#0b0e14' }}>
+    <div className="app-layout">
       <Sidebar auth={auth} />
-      <div style={{ flex: 1, padding: '40px' }}>
+      <div className="app-content">
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/clientes" element={<Clientes />} />

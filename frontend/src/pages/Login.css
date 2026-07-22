@@ -5,6 +5,7 @@
   min-height: 100vh;
   background-color: #0b0e14;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  padding: 16px;
 }
 
 .login-card {
@@ -84,4 +85,10 @@
 .login-btn {
   width: 100%;
   margin-top: 8px;
+}
+
+@media (max-width: 400px) {
+  .login-card {
+    padding: 24px;
+  }
 }

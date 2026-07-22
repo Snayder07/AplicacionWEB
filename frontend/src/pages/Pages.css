@@ -61,6 +61,47 @@
   letter-spacing: -0.5px;
 }
 
+/* ---------- Tarjetas de moneda (Dashboard) ---------- */
+
+.currency-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+.currency-card {
+  background-color: #0d1117;
+  border: 1px solid #21262d;
+  border-left: 3px solid #58a6ff;
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.currency-card-code {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 6px 0;
+}
+
+.currency-card-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.3px;
+}
+
+.currency-card-sub {
+  font-size: 11px;
+  color: #8b949e;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* ---------- Panel ---------- */
 
 .panel {
@@ -70,6 +111,7 @@
   padding: 24px;
   margin-bottom: 24px;
   transition: box-shadow 0.2s;
+  overflow-x: auto;
 }
 
 .panel-title {
@@ -461,4 +503,62 @@
 
 .page {
   animation: fadeIn 0.2s ease-out;
+}
+
+/* ---------- Responsive (tablet / móvil) ---------- */
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 22px;
+  }
+
+  .panel {
+    padding: 16px;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .toolbar-left,
+  .toolbar-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .search-input-wrapper {
+    width: 100%;
+  }
+
+  .search-input-wrapper input {
+    width: 100%;
+  }
+
+  .data-table {
+    min-width: 560px; /* el .panel hace scroll horizontal para no romper el layout */
+  }
+}
+
+@media (max-width: 480px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .currency-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-content {
+    width: 94%;
+    padding: 18px;
+  }
+
+  .card-value {
+    font-size: 24px;
+  }
 }

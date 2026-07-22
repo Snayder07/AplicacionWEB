@@ -1,4 +1,6 @@
 import { useDashboardController } from '../controllers/useDashboardController';
+import VentasChart from '../components/VentasChart';
+import { formatMoney } from '../utils/format';
 import './Pages.css';
 
 export default function Dashboard() {
@@ -33,6 +35,17 @@ export default function Dashboard() {
     { label: 'Pedidos completados', value: c.stats.pedidosCompletados, testId: 'card-completados' },
   ];
 
+  // Colores de acento por código de moneda (igual estilo que la referencia:
+  // azul, verde, naranja, morado...). Si aparece una moneda nueva que no está
+  // en la lista, se le asigna un color siguiendo el mismo ciclo.
+  const coloresMoneda = ['#58a6ff', '#3fb950', '#d29922', '#a371f7', '#f85149', '#39c5cf'];
+  const colorPorMoneda = (codigo, index) => coloresMoneda[index % coloresMoneda.length];
+
+  const ventasChartData = Object.entries(c.stats.ventasUltimos7Dias || {}).map(([label, value]) => ({
+    label,
+    value,
+  }));
+
   return (
     <div className="page" data-testid="dashboard-page">
       <div className="page-header">
@@ -47,6 +60,36 @@ export default function Dashboard() {
             <p className="card-value">{item.value}</p>
           </div>
         ))}
+      </div>
+
+      {c.stats.resumenPorMoneda?.length > 0 && (
+        <div className="panel" data-testid="dashboard-monedas">
+          <h2 className="panel-title">Dinero recibido por tipo de moneda</h2>
+          <div className="currency-grid">
+            {c.stats.resumenPorMoneda.map((moneda, index) => {
+              const color = colorPorMoneda(moneda.codigo, index);
+              return (
+                <div
+                  key={moneda.codigo}
+                  className="currency-card"
+                  style={{ borderLeftColor: color }}
+                  data-testid={`currency-card-${moneda.codigo}`}
+                >
+                  <p className="currency-card-code" style={{ color }}>{moneda.codigo}</p>
+                  <p className="currency-card-value">{formatMoney(moneda.total)}</p>
+                  <p className="currency-card-sub">
+                    {moneda.nombre} &middot; {moneda.cantidadPedidos} pedido{moneda.cantidadPedidos === 1 ? '' : 's'}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      <div className="panel" data-testid="dashboard-ventas-chart">
+        <h2 className="panel-title">Ventas &middot; últimos 7 días</h2>
+        <VentasChart data={ventasChartData} />
       </div>
 
       {c.stats.pedidosRecientes?.length > 0 && (

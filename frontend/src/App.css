@@ -1,0 +1,23 @@
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #0b0e14;
+}
+
+.app-content {
+  flex: 1;
+  min-width: 0; /* permite que tablas/grids se encojan en vez de desbordar la página */
+  padding: 40px;
+}
+
+@media (max-width: 768px) {
+  .app-content {
+    padding: 72px 20px 32px; /* espacio arriba para no chocar con el botón hamburguesa */
+  }
+}
+
+@media (max-width: 480px) {
+  .app-content {
+    padding: 68px 14px 28px;
+  }
+}
