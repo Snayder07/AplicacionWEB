@@ -90,19 +90,22 @@ public class DashboardService {
         stats.ventasUltimos7Dias = new LinkedHashMap<>();
         for (int i = 6; i >= 0; i--) {
             LocalDate dia = hoy.minusDays(i);
-            BigDecimal totalDia = robux.stream()
-                    .filter(r -> mismaFecha(r.getFechaCompra(), dia))
-                    .map(Compra_robux::getPrecio)
-                    .filter(java.util.Objects::nonNull)
-                    .reduce(BigDecimal.ZERO, BigDecimal::add)
-                    .add(streaming.stream()
-                            .filter(s -> mismaFecha(s.getFechaCompra(), dia))
-                            .map(Compra_streaming::getPrecioVenta)
-                            .filter(java.util.Objects::nonNull)
-                            .reduce(BigDecimal.ZERO, BigDecimal::add));
+            Map<String, BigDecimal> totalDiaPorMoneda = new LinkedHashMap<>();
+            robux.stream().filter(r -> mismaFecha(r.getFechaCompra(), dia))
+                    .forEach(r -> sumarEnMapa(totalDiaPorMoneda, r.getMoneda(), r.getPrecio()));
+            streaming.stream().filter(s -> mismaFecha(s.getFechaCompra(), dia))
+                    .forEach(s -> sumarEnMapa(totalDiaPorMoneda, s.getMoneda(), s.getPrecioVenta()));
+
+            BigDecimal totalDiaUsd = BigDecimal.ZERO;
+            for (Map.Entry<String, BigDecimal> entry : totalDiaPorMoneda.entrySet()) {
+                BigDecimal convertido = exchangeRateService.convertirAUsd(entry.getKey(), entry.getValue());
+                if (convertido != null) {
+                    totalDiaUsd = totalDiaUsd.add(convertido);
+                }
+            }
 
             String etiqueta = capitalizar(dia.getDayOfWeek().getDisplayName(TextStyle.SHORT, new Locale("es", "ES")));
-            stats.ventasUltimos7Dias.put(etiqueta, totalDia);
+            stats.ventasUltimos7Dias.put(etiqueta, totalDiaUsd);
         }
 
         // ===== PEDIDOS POR ESTADO (para la gráfica de barras) =====
