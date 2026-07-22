@@ -13,6 +13,9 @@ public class CorsConfig {
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
         config.addAllowedOrigin("http://localhost:5173");
+        // Cubre tanto el dominio de producción (ej: mi-app.vercel.app)
+        // como los dominios de preview que genera Vercel en cada deploy.
+        config.addAllowedOriginPattern("https://*.vercel.app");
         config.addAllowedMethod("*");
         config.addAllowedHeader("*");
         config.setAllowCredentials(true);
