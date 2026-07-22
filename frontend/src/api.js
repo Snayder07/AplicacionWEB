@@ -1,4 +1,7 @@
-const API_BASE = 'http://localhost:8080/api';
+// En local usa localhost:8080 por defecto.
+// En Vercel, se configura la variable de entorno VITE_API_BASE_URL
+// con la URL pública de tu backend desplegado (ej: https://tu-backend.up.railway.app)
+const API_BASE = `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'}/api`;
 
 export async function get(path) {
   const res = await fetch(`${API_BASE}${path}`);
