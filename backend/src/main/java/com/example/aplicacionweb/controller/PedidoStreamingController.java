@@ -1,5 +1,6 @@
 package com.example.aplicacionweb.controller;
 
+import com.example.aplicacionweb.dto.EstadoPedidoRequest;
 import com.example.aplicacionweb.dto.PedidoStreamingRequest;
 import com.example.aplicacionweb.model.*;
 import com.example.aplicacionweb.repository.*;
@@ -78,5 +79,17 @@ public class PedidoStreamingController {
         compra.setEstado(estado);
 
         return pedidoStreamingService.guardar(compra);
+    }
+
+    @PutMapping("/{id}/estado")
+    public ResponseEntity<Compra_streaming> actualizarEstado(@PathVariable Long id, @RequestBody EstadoPedidoRequest request) {
+        return repository.findById(id)
+                .map(pedido -> {
+                    Estado estado = estadoRepository.findByCodigo(request.getCodigoEstado())
+                            .orElseThrow(() -> new RuntimeException("Estado no encontrado: " + request.getCodigoEstado()));
+                    pedido.setEstado(estado);
+                    return ResponseEntity.ok(repository.save(pedido));
+                })
+                .orElse(ResponseEntity.notFound().build());
     }
 }

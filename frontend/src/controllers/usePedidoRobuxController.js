@@ -9,6 +9,7 @@ const estadoInicialForm = {
   metodoEntrega: '',
   codigoMoneda: 'USD',
   codigoEstado: '',
+  clave: '',
 };
 
 export function usePedidoRobuxController() {
@@ -38,7 +39,13 @@ export function usePedidoRobuxController() {
 
   function handleChange(e) {
     const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
+    setForm((prev) => {
+      if (name === 'metodoEntrega') {
+        if (value === 'Gamepass') return { ...prev, metodoEntrega: value, usuarioRoblox: '', clave: '' };
+        if (value === 'Grupo') return { ...prev, metodoEntrega: value, clave: '' };
+      }
+      return { ...prev, [name]: value };
+    });
   }
 
   async function handleSubmit(e) {
@@ -48,20 +55,30 @@ export function usePedidoRobuxController() {
       setError('Selecciona un cliente válido de la lista');
       return;
     }
-    if (!form.usuarioRoblox.trim()) {
-      setError('Usuario de Roblox es obligatorio');
-      return;
+    if (form.metodoEntrega === 'Gamepass') {
+      if (!form.clave.trim()) {
+        setError('El link de Gamepass es obligatorio');
+        return;
+      }
+    } else {
+      if (!form.usuarioRoblox.trim()) {
+        setError('Usuario de Roblox es obligatorio');
+        return;
+      }
     }
     setGuardando(true);
     try {
       const body = {
         nombreCliente: form.nombreCliente.trim(),
-        usuarioRoblox: form.usuarioRoblox.trim(),
         cantidadRobux: Number(form.cantidadRobux),
         precio: Number(form.precio),
-        metodoEntrega: form.metodoEntrega,
+        metodoEntrega: form.metodoEntrega === 'Gamepass' ? 'gp' : 'Grupo',
         codigoMoneda: form.codigoMoneda,
+        usuarioRoblox: form.metodoEntrega === 'Gamepass' ? '' : form.usuarioRoblox.trim(),
       };
+      if (form.metodoEntrega === 'Gamepass') {
+        body.clave = form.clave.trim();
+      }
       if (form.codigoEstado) {
         body.codigoEstado = form.codigoEstado;
       }
@@ -75,8 +92,10 @@ export function usePedidoRobuxController() {
     }
   }
 
+  const esGamepass = form.metodoEntrega === 'Gamepass';
+
   return {
-    pedidos, monedas, form, error, cargando, guardando,
+    pedidos, monedas, form, error, cargando, guardando, esGamepass,
     handleChange, handleSubmit,
   };
 }

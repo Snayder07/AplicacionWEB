@@ -44,7 +44,7 @@ AplicacionWEB/
 | `Inversion` | `inversiones` | Inversiones de clientes |
 | `Historial_inversion` | `Historial_inversion` | Historial de movimientos de inversiones |
 
-### Servicios (10)
+### Servicios (9)
 
 | Servicio | Función |
 |---|---|
@@ -60,22 +60,31 @@ AplicacionWEB/
 
 ### Controladores REST (10)
 
-| Endpoint | Método | Descripción |
+| Endpoint | Controller | Descripción |
 |---|---|---|
 | `POST /api/auth/login` | `AuthController` | Autenticación de admin |
 | `GET /api/clientes` | `ClientesController` | Listar todos los clientes |
+| `GET /api/clientes/con-pedidos` | `ClientesController` | Listar clientes con sus pedidos |
+| `GET /api/clientes/{id}` | `ClientesController` | Obtener cliente por ID |
 | `GET /api/clientes/buscar` | `ClientesController` | Buscar cliente por ID Discord |
 | `POST /api/clientes` | `ClientesController` | Crear nuevo cliente |
-| `GET /api/pedidos/streaming` | `PedidoStreamingController` | Listar pedidos de streaming |
-| `POST /api/pedidos/streaming` | `PedidoStreamingController` | Crear pedido de streaming |
 | `GET /api/pedidos/robux` | `PedidoRobuxController` | Listar pedidos de Robux |
+| `GET /api/pedidos/robux/{id}` | `PedidoRobuxController` | Obtener pedido Robux por ID |
 | `POST /api/pedidos/robux` | `PedidoRobuxController` | Crear pedido de Robux |
+| `PUT /api/pedidos/robux/{id}/estado` | `PedidoRobuxController` | Actualizar estado de pedido Robux |
+| `GET /api/pedidos/streaming` | `PedidoStreamingController` | Listar pedidos de streaming |
+| `GET /api/pedidos/streaming/{id}` | `PedidoStreamingController` | Obtener pedido streaming por ID |
+| `POST /api/pedidos/streaming` | `PedidoStreamingController` | Crear pedido de streaming |
+| `PUT /api/pedidos/streaming/{id}/estado` | `PedidoStreamingController` | Actualizar estado de pedido streaming |
 | `GET /api/cuentas-streaming` | `CuentasCompradasController` | Listar inventario de cuentas |
+| `GET /api/cuentas-streaming/{id}` | `CuentasCompradasController` | Obtener cuenta por ID |
 | `POST /api/cuentas-streaming` | `CuentasCompradasController` | Agregar cuenta comprada |
 | `DELETE /api/cuentas-streaming/{id}` | `CuentasCompradasController` | Eliminar cuenta |
 | `GET /api/inversiones` | `InversionController` | Listar todas las inversiones |
 | `GET /api/inversiones/buscar` | `InversionController` | Buscar inversiones por cliente |
-| `POST /api/inversiones` | `InversionController` | Crear nueva inversión (con estado) |
+| `GET /api/inversiones/{id}` | `InversionController` | Obtener inversión por ID |
+| `POST /api/inversiones` | `InversionController` | Crear nueva inversión |
+| `PUT /api/inversiones/{id}/estado` | `InversionController` | Actualizar estado de inversión |
 | `POST /api/inversiones/{id}/capital` | `InversionController` | Agregar capital a inversión |
 | `GET /api/historial/pedidos` | `HistorialController` | Historial de pedidos (filtro por tipo) |
 | `GET /api/historial/inversiones/{id}` | `HistorialController` | Historial de movimientos de inversión |
@@ -83,15 +92,19 @@ AplicacionWEB/
 | `GET /api/estados` | `EstadoController` | Listar estados de pedido |
 | `GET /api/dashboard` | `DashboardController` | Estadísticas del dashboard |
 
-### DTOs
+### DTOs (11)
 
 | DTO | Campos clave |
 |---|---|
+| `LoginRequest` | `usuario`, `contrasena` |
+| `ClienteRequest` | `nombreDiscord`, `idDiscord` |
 | `InversionRequest` | `nombreCliente`, `montoInvertido`, `porcentajeMensual`, `fechaInversionInicial`, `estadoInversion` |
-| `PedidoStreamingRequest` | `nombreCliente`, `plataforma`, `correo`, `fechaVencimiento`, `precioVenta`, `codigoMoneda`, `codigoEstado` |
-| `PedidoRobuxRequest` | `nombreCliente`, `usuarioRoblox`, `cantidadRobux`, `precio`, `metodoEntrega`, `codigoMoneda`, `codigoEstado` |
+| `PedidoStreamingRequest` | `nombreCliente`, `plataforma`, `correo`, `contrasena`, `fechaVencimiento`, `precioVenta`, `codigoMoneda`, `codigoEstado` |
+| `PedidoRobuxRequest` | `nombreCliente`, `usuarioRoblox`, `cantidadRobux`, `precio`, `metodoEntrega`, `codigoMoneda`, `codigoEstado`, `clave` |
 | `CuentaStreamingRequest` | `plataforma`, `correo`, `contrasena`, `precioCompra`, `codigoMoneda` |
 | `CapitalRequest` | `monto` |
+| `EstadoPedidoRequest` | `codigoEstado` |
+| `EstadoInversionRequest` | `estadoInversion` |
 
 ---
 
@@ -105,20 +118,22 @@ AplicacionWEB/
 | Routing | React Router DOM v7 |
 | Idioma | JavaScript (JSX) |
 | Íconos | lucide-react |
-| Estilos | CSS plano (tema oscuro estilo GitHub, ~9.7KB) |
+| Gráficos | SVG puro (VentasChart) |
+| Estilos | CSS plano (tema oscuro estilo GitHub, ~14KB) |
 
-### Páginas (8 rutas)
+### Páginas (9 rutas)
 
 | Ruta | Componente | Descripción |
 |---|---|---|
-| `/` | `Dashboard` | Tarjetas de resumen + tabla de actividad reciente |
+| `/login` | `Login` | Pantalla de inicio de sesión |
+| `/` | `Dashboard` | Tarjetas de resumen, desglose por moneda, gráfico de ventas 7 días, actividad reciente |
 | `/clientes` | `Clientes` | Alta y listado de clientes con buscador por ID |
-| `/streaming` | `PedidoStreaming` | Registrar venta de streaming con autocompletado de cliente y correo |
-| `/robux` | `PedidoRobux` | Registrar venta de Robux con autocompletado de cliente |
+| `/streaming` | `PedidoStreaming` | Registrar venta de streaming con autocompletado de cliente y filtro de correo por plataforma |
+| `/robux` | `PedidoRobux` | Registrar venta de Robux con campos condicionales según método de entrega (Gamepass/Grupo) |
 | `/nueva-inversion` | `NuevaInversion` | Registrar inversión con estado seleccionable |
-| `/ver-inversiones` | `VerInversiones` | Ver inversiones con buscador y modales (capital + historial) |
-| `/cuentas-streaming` | `CuentasStreaming` | Inventario de cuentas compradas con buscador |
-| `/historial` | `Historial` | Historial de pedidos con filtro por tipo y búsqueda por texto |
+| `/ver-inversiones` | `VerInversiones` | Ver inversiones con buscador, edición inline de estado, modales de capital e historial |
+| `/cuentas-streaming` | `CuentasStreaming` | Inventario de cuentas compradas con buscador y detección de duplicados |
+| `/historial` | `Historial` | Historial de pedidos con filtro por tipo, búsqueda por texto, columna plataforma/método y edición inline de estado |
 
 ### Componentes reutilizables
 
@@ -126,23 +141,25 @@ AplicacionWEB/
 |---|---|---|
 | `Sidebar` | `{ auth }` | Menú lateral con íconos lucide-react, indicador activo con borde izquierdo |
 | `ProtectedRoute` | `{ children }` | Redirige a `/login` si no hay sesión |
-| `HistorialInversionModal` | `{ idInversion, onClose }` | Modal con movimientos de una inversión |
 | `SelectorCliente` | `{ value, onChange, required }` | Autocompletado de cliente: input + dropdown con filtro por nombre o ID de Discord |
-| `SelectorEstado` | `{ value, onChange }` | Select de estado del pedido con colores (Anotada=rojo, Tratamiento=amarillo, Finalizada=verde, Reintegrada=naranja) |
+| `SelectorEstado` | `{ value, onChange }` | Select de estado del pedido con colores (carga opciones desde `GET /api/estados`) |
+| `VentasChart` | `{ data }` (array `{label, value}`) | Gráfico SVG de líneas para ventas de últimos 7 días |
+| `HistorialInversionModal` | `{ idInversion, onClose }` | Modal con movimientos de una inversión |
 
 ### Custom Hooks (controladores)
 
 | Hook | Carga inicial | Expone |
 |---|---|---|
-| `useDashboardController` | `GET /api/dashboard` | `stats`, `estadoBadgeClass` |
+| `useLoginController` | — | `usuario`, `contrasena`, `error`, `cargando`, `handleSubmit` |
+| `useDashboardController` | `GET /api/dashboard` | `stats`, `error`, `cargando`, `estadoBadgeClass` |
 | `useClientesController` | `GET /api/clientes` | `clientes`, `filtro`, `handleAgregarCliente` |
+| `usePedidoRobuxController` | `GET /api/pedidos/robux`, `/monedas` | `form`, `pedidos`, `esGamepass`, `handleChange`, `handleSubmit` |
 | `usePedidoStreamingController` | `GET /api/pedidos/streaming`, `/monedas`, `/cuentas-streaming` | `form`, `pedidos`, `correosPorPlataforma`, `sinCuentas`, `handleChange`, `handleSubmit` |
-| `usePedidoRobuxController` | `GET /api/pedidos/robux`, `/monedas` | `form`, `pedidos`, `handleChange`, `handleSubmit` |
-| `useNuevaInversionController` | — (solo POST) | `form`, `mensaje`, `handleChange`, `handleSubmit` |
-| `useVerInversionesController` | `GET /api/inversiones` | `inversiones`, `filtro`, modales, `handleAgregarCapital` |
 | `useCuentasStreamingController` | `GET /api/cuentas-streaming`, `/monedas` | `cuentas` (filtradas), `busqueda`, `correoDuplicado`, CRUD |
-| `useHistorialController` | `GET /api/historial/pedidos` (según tipo) | `historial` (filtrado), `tipo`, `busqueda` |
-| `useLoginController` | — | `usuario`, `contrasena`, `handleSubmit` con callback |
+| `useNuevaInversionController` | — (solo POST) | `form`, `mensaje`, `handleChange`, `handleSubmit` |
+| `useVerInversionesController` | `GET /api/inversiones` | `inversiones`, `filtro`, `editandoId`, modales, `estadoBadgeClass`, `handleAgregarCapital`, `handleCambiarEstado` |
+| `useHistorialController` | `GET /api/historial/pedidos` (según tipo), `GET /api/estados` | `historial` (filtrado), `tipo`, `busqueda`, `estados`, `editandoKey`, `handleCambiarEstado` |
+| `useHistorialInversionController` | `GET /api/historial/inversiones/{id}` | `movimientos`, `cargando`, `error` |
 
 ---
 
@@ -173,14 +190,20 @@ AplicacionWEB/
 - Fecha de vencimiento, precio de venta, moneda
 
 ### Pedidos de Robux
-- Usuario de Roblox, cantidad de Robux, precio, método de entrega (Gamepass/Grupo)
+- Método de entrega con lógica condicional:
+  - **Gamepass**: oculta "Usuario de Roblox", muestra campo "Link de Gamepass", envía `metodoEntrega: "gp"` y guarda link en campo `clave`
+  - **Grupo**: muestra campo "Usuario de Roblox", envía `metodoEntrega: "Grupo"`
+  - Al cambiar de método se limpia el campo del método anterior
+- Cantidad de Robux, precio, moneda
 - Selector de estado del pedido
+- Tabla de pedidos registrados: si es Gamepass muestra el link (truncado) en vez del usuario de Roblox
 
 ### Inversiones
 - Registro con monto, porcentaje mensual, fecha de inicio y estado (Activa/Pausada)
+- Edición inline de estado desde la tabla (Activa, Finalizada, Pausada)
 - Posibilidad de agregar capital adicional a una inversión existente
 - Historial de movimientos por inversión en modal
-- Badge de estado con color (verde=activa, amarillo=pausada)
+- Badge de estado con color (verde=activa, azul=finalizada, amarillo=pausada)
 
 ### Cuentas Streaming (inventario)
 - CRUD completo: agregar, listar, eliminar cuentas compradas
@@ -192,6 +215,14 @@ AplicacionWEB/
 - Filtro por tipo de pedido (General/Robux/Streaming) que consulta al backend
 - Búsqueda en frontend por nombre o ID de Discord del cliente
 - Combinación de ambos filtros
+- Columna "Plataforma/Método" que muestra método de entrega (Robux) o plataforma de la cuenta (Streaming)
+- Edición inline de estado del pedido con selector con colores, persistencia vía PUT
+
+### Dashboard
+- 4 tarjetas de resumen: clientes totales, ventas totales (USD), pedidos pendientes, pedidos completados
+- Desglose de dinero recibido por tipo de moneda con tarjetas de colores
+- Gráfico de ventas de los últimos 7 días (SVG puro)
+- Tabla de actividad reciente con estado coloreado
 
 ---
 

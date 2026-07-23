@@ -501,8 +501,156 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
 .page {
   animation: fadeIn 0.2s ease-out;
+}
+
+/* ---------- Skeleton loading ---------- */
+
+.skeleton {
+  background: linear-gradient(90deg, #161b22 25%, #1c2128 50%, #161b22 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 10px;
+  border: 1px solid #21262d;
+}
+
+.skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+/* ---------- Charts grid ---------- */
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chart-card {
+  padding: 20px;
+}
+
+.chart-card .panel-title {
+  margin-bottom: 12px;
+}
+
+/* ---------- Chart tooltip (dark) ---------- */
+
+.chart-tooltip {
+  background-color: #1c2128;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 10px 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.chart-tooltip-label {
+  margin: 0 0 4px 0;
+  font-size: 12px;
+  color: #8b949e;
+  font-weight: 600;
+}
+
+.chart-tooltip-value {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* ---------- Resumen por moneda ---------- */
+
+.monedas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.moneda-card {
+  background-color: #0d1117;
+  border: 1px solid #21262d;
+  border-radius: 8px;
+  padding: 14px 16px;
+  transition: border-color 0.2s;
+}
+
+.moneda-card:hover {
+  border-color: #30363d;
+}
+
+.moneda-codigo {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 2px 0;
+  letter-spacing: 0.3px;
+}
+
+.moneda-nombre {
+  font-size: 11px;
+  color: #8b949e;
+  margin: 0 0 8px 0;
+}
+
+.moneda-total {
+  font-size: 20px;
+  font-weight: 700;
+  color: #58a6ff;
+  margin: 0 0 2px 0;
+}
+
+.moneda-pedidos {
+  font-size: 11px;
+  color: #484f58;
+  margin: 0;
+}
+
+/* ---------- Resumen rápido (4 tarjetas compactas) ---------- */
+
+.resumen-rapido-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+  .resumen-rapido-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.resumen-rapido-grid .card {
+  padding: 16px 20px;
+}
+
+.resumen-rapido-grid .card-value {
+  font-size: 22px;
+}
+
+/* ---------- Warning icon ---------- */
+
+.warning-icon {
+  display: inline-flex;
+  margin-left: 4px;
+  cursor: help;
+  font-size: 14px;
+  vertical-align: middle;
 }
 
 /* ---------- Responsive (tablet / móvil) ---------- */

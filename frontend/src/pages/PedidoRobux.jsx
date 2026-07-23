@@ -20,11 +20,21 @@ export default function PedidoRobux() {
           <div className="form-grid">
             <SelectorCliente value={c.form.nombreCliente} onChange={c.handleChange} required />
 
-            <div className="form-field">
-              <label htmlFor="usuarioRoblox">Usuario de Roblox</label>
-              <input id="usuarioRoblox" name="usuarioRoblox" type="text" placeholder="ej. player123"
-                value={c.form.usuarioRoblox} onChange={c.handleChange} data-testid="input-robux-usuario" />
-            </div>
+            {!c.esGamepass && (
+              <div className="form-field">
+                <label htmlFor="usuarioRoblox">Usuario de Roblox</label>
+                <input id="usuarioRoblox" name="usuarioRoblox" type="text" placeholder="ej. player123"
+                  value={c.form.usuarioRoblox} onChange={c.handleChange} data-testid="input-robux-usuario" />
+              </div>
+            )}
+
+            {c.esGamepass && (
+              <div className="form-field">
+                <label htmlFor="clave">Link de Gamepass</label>
+                <input id="clave" name="clave" type="text" placeholder="https://www.roblox.com/game-pass/..."
+                  value={c.form.clave} onChange={c.handleChange} data-testid="input-robux-clave" />
+              </div>
+            )}
 
             <div className="form-field">
               <label htmlFor="cantidadRobux">Cantidad de Robux</label>
@@ -92,7 +102,9 @@ export default function PedidoRobux() {
               {c.pedidos.map((p) => (
                 <tr key={p.idCompraRobux} data-testid={`fila-robux-${p.idCompraRobux}`}>
                   <td>{p.cliente?.nombreDiscord || 'N/D'}</td>
-                  <td>{p.usuarioRoblox}</td>
+                  <td title={p.metodoEntrega === 'gp' ? p.clave : ''}>
+                    {p.metodoEntrega === 'gp' ? (p.clave ? p.clave.substring(0, 40) + (p.clave.length > 40 ? '...' : '') : 'N/D') : p.usuarioRoblox}
+                  </td>
                   <td>{p.cantidadRobux}</td>
                   <td>${p.precio}</td>
                   <td>{p.metodoEntrega}</td>

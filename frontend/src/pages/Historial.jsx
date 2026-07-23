@@ -1,6 +1,17 @@
 import { useHistorialController } from '../controllers/useHistorialController';
-import { Search } from 'lucide-react';
+import { Search, Pencil } from 'lucide-react';
 import './Pages.css';
+
+const COLORES_ESTADO_PEDIDO = {
+  'anotada': { bg: 'rgba(248, 81, 73, 0.15)', color: '#f85149' },
+  'tratamiento': { bg: 'rgba(210, 153, 34, 0.15)', color: '#d29922' },
+  'finalizada': { bg: 'rgba(63, 185, 80, 0.15)', color: '#3fb950' },
+  'reintegrada': { bg: 'rgba(255, 165, 0, 0.15)', color: '#ff8c00' },
+};
+
+function colorEstadoPedido(nombre) {
+  return COLORES_ESTADO_PEDIDO[(nombre || '').toLowerCase()] || { bg: 'rgba(31, 111, 235, 0.15)', color: '#58a6ff' };
+}
 
 export default function Historial() {
   const c = useHistorialController();
@@ -56,21 +67,55 @@ export default function Historial() {
               <tr>
                 <th>Cliente</th>
                 <th>Tipo</th>
+                <th>Plataforma/Método</th>
                 <th>Monto</th>
                 <th>Estado</th>
                 <th>Fecha</th>
+                <th style={{ width: 60 }}></th>
               </tr>
             </thead>
             <tbody>
               {c.historial.map((item) => {
+                const key = item.idCompraRobux !== undefined
+                  ? `r-${item.idCompraRobux}`
+                  : `s-${item.idCompraStreaming}`;
                 const esRobux = item.idCompraRobux !== undefined;
+                const plataformaOMetodo = esRobux
+                  ? item.metodoEntrega
+                  : item.cuentaComprada?.plataforma || '—';
+                const id = esRobux ? item.idCompraRobux : item.idCompraStreaming;
                 return (
-                  <tr key={esRobux ? `r-${item.idCompraRobux}` : `s-${item.idCompraStreaming}`}>
+                  <tr key={key}>
                     <td>{item.cliente?.nombreDiscord || 'N/D'}</td>
                     <td>{esRobux ? 'Robux' : 'Streaming'}</td>
+                    <td>{plataformaOMetodo}</td>
                     <td>${(esRobux ? item.precio : item.precioVenta)?.toFixed(2)}</td>
-                    <td><span className="badge badge-info">{item.estado?.nombreEstado || 'N/D'}</span></td>
+                    <td>
+                      {c.editandoKey === key ? (
+                        <select
+                          value={item.estado?.codigo || ''}
+                          onChange={(e) => c.handleCambiarEstado(key, esRobux, id, e.target.value)}
+                          autoFocus
+                          style={{ backgroundColor: '#0d1117', border: '1px solid #21262d', borderRadius: '4px', padding: '4px 8px', color: '#fff', fontSize: '12px' }}
+                        >
+                          {c.estados.map(est => (
+                            <option key={est.idEstado} value={est.codigo}>{est.nombreEstado}</option>
+                          ))}
+                        </select>
+                      ) : (
+                        <span className="badge" style={colorEstadoPedido(item.estado?.nombreEstado)}>
+                          {item.estado?.nombreEstado || 'N/D'}
+                        </span>
+                      )}
+                    </td>
                     <td>{item.fechaCompra ? new Date(item.fechaCompra).toLocaleDateString() : ''}</td>
+                    <td>
+                      <button onClick={() => c.setEditandoKey(c.editandoKey === key ? null : key)}
+                        title="Editar estado" data-testid={`btn-editar-estado-${id}`}
+                        style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4, color: '#8b949e' }}>
+                        <Pencil size={14} />
+                      </button>
+                    </td>
                   </tr>
                 );
               })}

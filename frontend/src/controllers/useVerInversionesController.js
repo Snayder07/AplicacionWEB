@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
-import { get, post } from '../api';
+import { useState, useEffect, useRef, useCallback } from 'react';
+import { get, post, put } from '../api';
 
 export function useVerInversionesController() {
   const [inversiones, setInversiones] = useState([]);
@@ -9,6 +9,7 @@ export function useVerInversionesController() {
   const [modalCapital, setModalCapital] = useState(null);
   const [modalHistorial, setModalHistorial] = useState(null);
   const [montoCapital, setMontoCapital] = useState('');
+  const [editandoId, setEditandoId] = useState(null);
   const inicializado = useRef(false);
 
   function cargar() {
@@ -35,7 +36,9 @@ export function useVerInversionesController() {
 
   function estadoBadgeClass(estado) {
     const e = (estado || '').toLowerCase();
-    return e === 'activa' ? 'badge badge-success' : 'badge badge-warning';
+    if (e === 'activa') return 'badge badge-success';
+    if (e === 'finalizada') return 'badge badge-info';
+    return 'badge badge-warning';
   }
 
   function abrirModalCapital(inversion) {
@@ -68,12 +71,26 @@ export function useVerInversionesController() {
     setModalHistorial(null);
   }
 
+  const handleCambiarEstado = useCallback(async (id, nuevoEstado) => {
+    try {
+      await put(`/inversiones/${id}/estado`, { estadoInversion: nuevoEstado });
+      setInversiones(prev => prev.map(inv =>
+        inv.idInversion === id ? { ...inv, estadoInversion: nuevoEstado } : inv
+      ));
+      setEditandoId(null);
+    } catch (err) {
+      setError('Error al actualizar el estado de la inversión');
+    }
+  }, []);
+
   return {
     inversiones, filtro, error, cargando,
     modalCapital, modalHistorial, montoCapital,
-    setFiltro, setMontoCapital,
+    editandoId,
+    setFiltro, setMontoCapital, setEditandoId,
     estadoBadgeClass,
     abrirModalCapital, cerrarModalCapital, handleAgregarCapital,
     abrirModalHistorial, cerrarModalHistorial,
+    handleCambiarEstado,
   };
 }

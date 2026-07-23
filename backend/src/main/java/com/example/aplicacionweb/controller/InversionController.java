@@ -1,6 +1,7 @@
 package com.example.aplicacionweb.controller;
 
 import com.example.aplicacionweb.dto.CapitalRequest;
+import com.example.aplicacionweb.dto.EstadoInversionRequest;
 import com.example.aplicacionweb.dto.InversionRequest;
 import com.example.aplicacionweb.model.Clientes;
 import com.example.aplicacionweb.model.Inversion;
@@ -60,6 +61,16 @@ public class InversionController {
         );
 
         return inversionRepository.save(inversion);
+    }
+
+    @PutMapping("/{id}/estado")
+    public ResponseEntity<Inversion> actualizarEstado(@PathVariable Long id, @RequestBody EstadoInversionRequest request) {
+        return inversionRepository.findById(id)
+                .map(inv -> {
+                    inv.setEstadoInversion(request.getEstadoInversion());
+                    return ResponseEntity.ok(inversionRepository.save(inv));
+                })
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping("/{id}/capital")

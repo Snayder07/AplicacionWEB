@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef, useMemo } from 'react';
-import { get } from '../api';
+import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
+import { get, put } from '../api';
 
 export function useHistorialController() {
   const [historial, setHistorial] = useState([]);
@@ -7,6 +7,8 @@ export function useHistorialController() {
   const [busqueda, setBusqueda] = useState('');
   const [error, setError] = useState('');
   const [cargando, setCargando] = useState(true);
+  const [estados, setEstados] = useState([]);
+  const [editandoKey, setEditandoKey] = useState(null);
   const inicializado = useRef(false);
 
   const historialFiltrado = useMemo(() => {
@@ -41,8 +43,30 @@ export function useHistorialController() {
     }
   }, [tipo]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  useEffect(() => {
+    get('/estados')
+      .then(setEstados)
+      .catch(() => {});
+  }, []);
+
+  const handleCambiarEstado = useCallback(async (key, esRobux, id, codigoEstado) => {
+    const basePath = esRobux ? '/pedidos/robux' : '/pedidos/streaming';
+    try {
+      const updated = await put(`${basePath}/${id}/estado`, { codigoEstado });
+      setHistorial(prev => prev.map(item => {
+        const itemKey = esRobux ? `r-${item.idCompraRobux}` : `s-${item.idCompraStreaming}`;
+        if (itemKey === key) return { ...item, estado: updated.estado };
+        return item;
+      }));
+      setEditandoKey(null);
+    } catch {
+      setError('Error al actualizar el estado');
+    }
+  }, []);
+
   return {
     historial: historialFiltrado, tipo, busqueda, error, cargando,
-    setTipo, setBusqueda,
+    estados, editandoKey,
+    setTipo, setBusqueda, setEditandoKey, handleCambiarEstado,
   };
 }

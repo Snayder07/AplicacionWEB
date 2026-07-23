@@ -1,6 +1,6 @@
 import { useVerInversionesController } from '../controllers/useVerInversionesController';
 import HistorialInversionModal from '../components/HistorialInversionModal';
-import { Search } from 'lucide-react';
+import { Search, Pencil } from 'lucide-react';
 import './Pages.css';
 
 export default function VerInversiones() {
@@ -63,13 +63,39 @@ export default function VerInversiones() {
                 <td>{inv.porcentajeMensual}%</td>
                 <td>{inv.fechaInversionInicial}</td>
                 <td>
-                  <span className={c.estadoBadgeClass(inv.estadoInversion)} data-testid={`inversion-estado-${inv.idInversion}`}>{inv.estadoInversion}</span>
+                  {c.editandoId === inv.idInversion ? (
+                    <select
+                      value={inv.estadoInversion || ''}
+                      onChange={(e) => { e.stopPropagation(); c.handleCambiarEstado(inv.idInversion, e.target.value); }}
+                      onClick={(e) => e.stopPropagation()}
+                      autoFocus
+                      style={{ backgroundColor: '#0d1117', border: '1px solid #21262d', borderRadius: '4px', padding: '4px 8px', color: '#fff', fontSize: '12px' }}
+                    >
+                      <option value="activa">Activa</option>
+                      <option value="finalizada">Finalizada</option>
+                      <option value="pausada">Pausada</option>
+                    </select>
+                  ) : (
+                    <span className={c.estadoBadgeClass(inv.estadoInversion)}
+                      data-testid={`inversion-estado-${inv.idInversion}`}
+                      onClick={(e) => { e.stopPropagation(); c.setEditandoId(inv.idInversion); }}
+                      style={{ cursor: 'pointer' }}>
+                      {inv.estadoInversion}
+                    </span>
+                  )}
                 </td>
                 <td>
                   <button className="btn btn-primary btn-sm"
                     onClick={(e) => { e.stopPropagation(); c.abrirModalCapital(inv); }}
                     data-testid={`btn-capital-${inv.idInversion}`}>
                     + Capital
+                  </button>
+                  <button
+                    onClick={(e) => { e.stopPropagation(); c.setEditandoId(c.editandoId === inv.idInversion ? null : inv.idInversion); }}
+                    title="Editar estado"
+                    data-testid={`btn-editar-estado-${inv.idInversion}`}
+                    style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '4px 8px', color: '#8b949e', marginLeft: 4 }}>
+                    <Pencil size={14} />
                   </button>
                 </td>
               </tr>

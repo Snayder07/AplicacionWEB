@@ -1,5 +1,6 @@
 package com.example.aplicacionweb.controller;
 
+import com.example.aplicacionweb.dto.EstadoPedidoRequest;
 import com.example.aplicacionweb.dto.PedidoRobuxRequest;
 import com.example.aplicacionweb.model.Clientes;
 import com.example.aplicacionweb.model.Compra_robux;
@@ -66,10 +67,23 @@ public class PedidoRobuxController {
         compra.setMoneda(moneda);
         compra.setCantidadRobux(request.getCantidadRobux());
         compra.setPrecio(request.getPrecio());
-        compra.setUsuarioRoblox(request.getUsuarioRoblox());
+        compra.setUsuarioRoblox(request.getUsuarioRoblox() != null ? request.getUsuarioRoblox() : "");
         compra.setMetodoEntrega(request.getMetodoEntrega());
+        compra.setClave(request.getClave());
         compra.setEstado(estado);
 
         return pedidoRobuxService.guardar(compra);
+    }
+
+    @PutMapping("/{id}/estado")
+    public ResponseEntity<Compra_robux> actualizarEstado(@PathVariable Long id, @RequestBody EstadoPedidoRequest request) {
+        return repository.findById(id)
+                .map(pedido -> {
+                    Estado estado = estadoRepository.findByCodigo(request.getCodigoEstado())
+                            .orElseThrow(() -> new RuntimeException("Estado no encontrado: " + request.getCodigoEstado()));
+                    pedido.setEstado(estado);
+                    return ResponseEntity.ok(repository.save(pedido));
+                })
+                .orElse(ResponseEntity.notFound().build());
     }
 }

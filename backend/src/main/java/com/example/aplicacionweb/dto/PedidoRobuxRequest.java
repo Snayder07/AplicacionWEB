@@ -10,6 +10,7 @@ public class PedidoRobuxRequest {
     private String metodoEntrega;
     private String codigoMoneda;
     private String codigoEstado;
+    private String clave;
 
     public String getNombreCliente() { return nombreCliente; }
     public void setNombreCliente(String nombreCliente) { this.nombreCliente = nombreCliente; }
@@ -25,4 +26,6 @@ public class PedidoRobuxRequest {
     public void setCodigoMoneda(String codigoMoneda) { this.codigoMoneda = codigoMoneda; }
     public String getCodigoEstado() { return codigoEstado; }
     public void setCodigoEstado(String codigoEstado) { this.codigoEstado = codigoEstado; }
+    public String getClave() { return clave; }
+    public void setClave(String clave) { this.clave = clave; }
 }
